@@ -3,6 +3,7 @@ import subprocess
 import time
 import configparser
 import os
+from functools import partial
 
 
 CONFIG = None
@@ -98,8 +99,8 @@ def main():
     print("🔹 F11 — разблокировать интернет")
     print("🔹 Ctrl+C — выход")
 
-    keyboard.add_hotkey("F10", block_internet_for_process)
-    keyboard.add_hotkey("F11", unblock_internet_for_process)
+    keyboard.add_hotkey("F10", partial(block_internet_for_process, aces_path))
+    keyboard.add_hotkey("F11", partial(unblock_internet_for_process, aces_path))
 
     try:
         while True:
