@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install *)",
+      "Bash(python *)",
+      "Bash(pyinstaller *)",
+      "Bash(git tag *)",
+      "Bash(git push *)",
+      "Bash(gh *)",
+      "Bash(curl *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  },
+  "$version": 3
+}

@@ -2,9 +2,18 @@
 
 Простой помощник для блокировки интернета в War Thunder.
 
-## 🔧 Первый запуск
+## 📥 Установка
 
-1. Запусти **`setup.cmd`** — создаст виртуальное окружение и установит зависимости(необходим Python с path - https://www.python.org/getit/windows/ 3.11+).
+### Вариант 1: Готовый executable (рекомендуется)
+
+1. Перейди в [Releases](https://github.com/your-username/wt_internet_switcher/releases).
+2. Скачай последний `wt_internet_switcher.exe`.
+3. Запусти **`wt_internet_switcher.exe` от имени администратора**.
+4. При первом запуске автоматически создастся `config.ini` — отредактируй его, указав путь к игре.
+
+### Вариант 2: Запуск из исходного кода
+
+1. Запусти **`setup.cmd`** — создаст виртуальное окружение и установит зависимости (необходим Python с path - https://www.python.org/getit/windows/ 3.11+).
 2. Отредактируй **`config.ini`**:
    - Укажи путь к папке с игрой War Thunder.
    - Пример:

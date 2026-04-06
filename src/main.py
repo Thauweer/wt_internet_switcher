@@ -9,16 +9,35 @@ from functools import partial
 CONFIG = None
 
 
+def create_default_config(config_path='config.ini'):
+    """Создаёт конфигурационный файл с настройками по умолчанию."""
+    config = configparser.ConfigParser()
+    config['Paths'] = {
+        'game_path': 'C:/Games/MyAwesomeGame'
+    }
+    config['Settings'] = {
+        'fullscreen': 'True',
+        'resolution': '1920x1080'
+    }
+    
+    with open(config_path, 'w', encoding='utf-8') as configfile:
+        config.write(configfile)
+    
+    print(f"+ config.ini создан в {os.path.abspath(config_path)}")
+
+
 def load_config():
     global CONFIG
     config_file = 'config.ini'
 
+    # Создаём config.ini, если он не существует
     if not os.path.exists(config_file):
-        raise FileNotFoundError(f"Конфигурационный файл '{config_file}' не найден.")
+        print(f"⚠️  Конфигурационный файл '{config_file}' не найден. Создаём с настройками по умолчанию...")
+        create_default_config(config_file)
 
     CONFIG = configparser.ConfigParser()
     CONFIG.read(config_file, encoding='utf-8')
-    print(f"Конфигурация успешно загружена из {config_file}")
+    print(f"Конфигурация загружена из {config_file}")
 
 
 def block_internet_for_process(aces_path:str):
